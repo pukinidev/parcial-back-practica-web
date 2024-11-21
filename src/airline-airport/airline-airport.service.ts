@@ -95,6 +95,39 @@ export class AirlineAirportService {
     return airport;
   }
 
+  async updateAirportsFromAirline(
+    airlineId: string,
+    airports: AirportEntity[],
+  ): Promise<AirlineEntity> {
+    const airline = await this.airlineRepository.findOne({
+      where: { id: airlineId },
+      relations: ['airports'],
+    });
+
+    if (!airline) {
+      throw new BusinessLogicException(
+        'Airline not found',
+        BusinessError.NOT_FOUND,
+      );
+    }
+
+    for (const airport of airports) {
+      const airportEntity = await this.airportRepository.findOne({
+        where: { id: airport.id },
+      });
+
+      if (!airportEntity) {
+        throw new BusinessLogicException(
+          'Airport not found',
+          BusinessError.NOT_FOUND,
+        );
+      }
+    }
+
+    airline.airports = airports;
+    return await this.airlineRepository.save(airline);
+  }
+
   async deleteAirportFromAirline(
     airlineId: string,
     airportId: string,

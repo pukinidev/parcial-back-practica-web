@@ -35,6 +35,12 @@ export class AirlineService {
   }
 
   async create(airline: AirlineEntity): Promise<AirlineEntity> {
+    if (airline.fundationDate > new Date()) {
+      throw new BusinessLogicException(
+        'The foundation date must be in the past',
+        BusinessError.PRECONDITION_FAILED,
+      );
+    }
     return await this.airlineRepository.save(airline);
   }
 
@@ -49,6 +55,14 @@ export class AirlineService {
         BusinessError.NOT_FOUND,
       );
     }
+
+    if (airline.fundationDate > new Date()) {
+      throw new BusinessLogicException(
+        'The foundation date must be in the past',
+        BusinessError.PRECONDITION_FAILED,
+      );
+    }
+
     airline.id = id;
     return await this.airlineRepository.save(airline);
   }
