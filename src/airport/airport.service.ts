@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import {
   BusinessError,
   BusinessLogicException,
-} from '../shared/business-errors';
+} from '../shared/errors/business-errors';
 
 @Injectable()
 export class AirportService {
@@ -33,6 +33,12 @@ export class AirportService {
   }
 
   async create(airport: AirportEntity): Promise<AirportEntity> {
+    if (airport.code.length !== 3) {
+      throw new BusinessLogicException(
+        'Airport code must have 3 characters',
+        BusinessError.PRECONDITION_FAILED,
+      );
+    }
     return await this.airportRepository.save(airport);
   }
 
@@ -46,6 +52,14 @@ export class AirportService {
         BusinessError.NOT_FOUND,
       );
     }
+
+    if (airport.code.length !== 3) {
+      throw new BusinessLogicException(
+        'Airport code must have 3 characters',
+        BusinessError.PRECONDITION_FAILED,
+      );
+    }
+
     airport.id = id;
     return await this.airportRepository.save(airport);
   }
