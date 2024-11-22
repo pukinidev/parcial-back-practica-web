@@ -2,17 +2,17 @@ import { IsDate, IsNotEmpty, IsString, IsUrl } from 'class-validator';
 export class AirlineDto {
   @IsNotEmpty()
   @IsString()
-  name: string;
+  readonly name: string;
 
   @IsNotEmpty()
   @IsString()
-  description: string;
+  readonly description: string;
 
   @IsNotEmpty()
   @IsDate()
-  foundationDate: Date;
+  readonly foundationDate: Date;
 
   @IsNotEmpty()
   @IsUrl()
-  website: string;
+  readonly website: string;
 }

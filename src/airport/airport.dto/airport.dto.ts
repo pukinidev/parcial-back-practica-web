@@ -2,17 +2,17 @@ import { IsNotEmpty, IsString } from 'class-validator';
 export class AirportDto {
   @IsNotEmpty()
   @IsString()
-  name: string;
+  readonly name: string;
 
   @IsNotEmpty()
   @IsString()
-  code: string;
+  readonly code: string;
 
   @IsNotEmpty()
   @IsString()
-  country: string;
+  readonly country: string;
 
   @IsNotEmpty()
   @IsString()
-  city: string;
+  readonly city: string;
 }
