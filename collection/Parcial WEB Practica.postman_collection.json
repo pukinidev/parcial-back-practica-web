@@ -1,0 +1,862 @@
+{
+	"info": {
+		"_postman_id": "dad50c3c-5f35-4497-a997-9a1e2b90d2e9",
+		"name": "Parcial WEB Practica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23349476"
+	},
+	"item": [
+		{
+			"name": "Airlines",
+			"item": [
+				{
+					"name": "Add an Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"airline_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1927-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add an Airline",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1927-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Add an Invalid Airline (Date)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 412\", function () {",
+									"   pm.response.to.have.status(412);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"The foundation date must be in the past\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"AirFrance\",\n    \"description\": \"Since it was founded in 1933, Air France has offered its passengers a unique experience on board its aircraft, which serve a vast network worldwide. Structured around three main activities - passenger transport, cargo and aircraft maintenance - Air France has become a major player in the airline industry thanks to the hard work and commitment of its employees.\",\n    \"foundationDate\": \"2024-11-22\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add an Invalid Airline (Date)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"AirFrance\",\n    \"description\": \"Since it was founded in 1933, Air France has offered its passengers a unique experience on board its aircraft, which serve a vast network worldwide. Structured around three main activities - passenger transport, cargo and aircraft maintenance - Air France has become a major player in the airline industry thanks to the hard work and commitment of its employees.\",\n    \"foundationDate\": \"2024-11-22\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get all Airlines",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of airlines > ' + 0, function () {",
+									"   var data = pm.response.json()",
+									"   pm.expect(data.length).to.greaterThan(0)",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all Airlines",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"720effa5-86d9-4824-a214-3e725d771aab\",\n        \"name\": \"Iberia\",\n        \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n        \"foundationDate\": \"1927-06-28T00:00:00.000Z\",\n        \"website\": \"https://www.iberia.com/co/\",\n        \"airports\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get one Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get one Airline",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get an invalid Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airline not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{invalid_airline_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get an invalid Airline",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{invalid_airline_ID}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airline not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an Airline",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"fundationDate\": \"1969-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Invalid Airline",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"fundationDate\": \"1969-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{invalid_airline_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Airline",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Invalid Airline",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{invalid_airline_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Airports",
+			"item": [
+				{
+					"name": "Add an Airport",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"airport_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\" : \"MDR\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add an Airport",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\" : \"MDR\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Add an Invalid Airport (Code)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 412\", function () {",
+									"   pm.response.to.have.status(412);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airport code must have 3 characters\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\" : \"MDR1\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add an Invalid Airport (Code)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\" : \"MDR1\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get all Airports",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of airports > ' + 0, function () {",
+									"   var data = pm.response.json()",
+									"   pm.expect(data.length).to.greaterThan(0)",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all Airports",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"39c71319-d779-4bc5-b95b-aec9de557f07\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Madrid\",\n        \"airlines\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get one Airports",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get one Airports",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"39c71319-d779-4bc5-b95b-aec9de557f07\",\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\": \"MDR\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\",\n    \"airlines\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an invalid Airport",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airport not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airports/{{invalid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports",
+								"{{invalid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get an invalid Airport",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airports/{{invalid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										"{{invalid_airport_ID}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airport not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an Airport",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Invalid Airport",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airports/{{invalid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports",
+								"{{invalid_airport_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Airport",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Invalid Airport",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airports/{{invalid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports",
+								"{{invalid_airport_ID}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Airlines-Airports",
+			"item": []
+		}
+	]
+}
