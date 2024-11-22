@@ -35,7 +35,8 @@ export class AirlineService {
   }
 
   async create(airline: AirlineEntity): Promise<AirlineEntity> {
-    if (airline.fundationDate > new Date()) {
+    const foundationDate = new Date(airline.foundationDate);
+    if (foundationDate > new Date()) {
       throw new BusinessLogicException(
         'The foundation date must be in the past',
         BusinessError.PRECONDITION_FAILED,
@@ -56,7 +57,8 @@ export class AirlineService {
       );
     }
 
-    if (airline.fundationDate > new Date()) {
+    const foundationDate = new Date(airline.foundationDate);
+    if (foundationDate > new Date()) {
       throw new BusinessLogicException(
         'The foundation date must be in the past',
         BusinessError.PRECONDITION_FAILED,

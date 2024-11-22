@@ -19,7 +19,7 @@ export class AirlineEntity {
   description: string;
 
   @Column()
-  fundationDate: Date;
+  foundationDate: Date;
 
   @Column()
   website: string;

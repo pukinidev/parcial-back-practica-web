@@ -10,7 +10,7 @@ export class AirlineDto {
 
   @IsNotEmpty()
   @IsDate()
-  fundationDate: Date;
+  foundationDate: Date;
 
   @IsNotEmpty()
   @IsUrl()

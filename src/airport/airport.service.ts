@@ -33,7 +33,8 @@ export class AirportService {
   }
 
   async create(airport: AirportEntity): Promise<AirportEntity> {
-    if (airport.code.length !== 3) {
+    const airportCode = airport.code;
+    if (airportCode.length !== 3) {
       throw new BusinessLogicException(
         'Airport code must have 3 characters',
         BusinessError.PRECONDITION_FAILED,
@@ -53,7 +54,8 @@ export class AirportService {
       );
     }
 
-    if (airport.code.length !== 3) {
+    const airportCode = airport.code;
+    if (airportCode.length !== 3) {
       throw new BusinessLogicException(
         'Airport code must have 3 characters',
         BusinessError.PRECONDITION_FAILED,
