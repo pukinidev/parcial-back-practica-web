@@ -6,7 +6,6 @@ import {
   BusinessError,
   BusinessLogicException,
 } from '../shared/errors/business-errors';
-import * as moment from 'moment-timezone';
 
 @Injectable()
 export class AirlineService {
