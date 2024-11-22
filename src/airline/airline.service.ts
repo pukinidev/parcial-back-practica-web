@@ -63,8 +63,13 @@ export class AirlineService {
       );
     }
 
-    const foundationDate = new Date(airline.foundationDate);
-    if (foundationDate > new Date()) {
+    const foundationDate = moment
+      .tz(airline.foundationDate, 'America/Bogota')
+      .toDate();
+
+    const currentDate = moment.tz('America/Bogota').toDate();
+
+    if (foundationDate > currentDate) {
       throw new BusinessLogicException(
         'The foundation date must be in the past',
         BusinessError.PRECONDITION_FAILED,
