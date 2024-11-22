@@ -36,11 +36,8 @@ export class AirlineService {
   }
 
   async create(airline: AirlineEntity): Promise<AirlineEntity> {
-    const foundationDate = moment
-      .tz(airline.foundationDate, 'America/Bogota')
-      .toDate();
-
-    const currentDate = moment.tz('America/Bogota').toDate();
+    const foundationDate = new Date(airline.foundationDate);
+    const currentDate = new Date();
 
     if (foundationDate > currentDate) {
       throw new BusinessLogicException(
@@ -63,11 +60,8 @@ export class AirlineService {
       );
     }
 
-    const foundationDate = moment
-      .tz(airline.foundationDate, 'America/Bogota')
-      .toDate();
-
-    const currentDate = moment.tz('America/Bogota').toDate();
+    const foundationDate = new Date(airline.foundationDate);
+    const currentDate = new Date();
 
     if (foundationDate > currentDate) {
       throw new BusinessLogicException(
