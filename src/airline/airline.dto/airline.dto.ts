@@ -1,3 +1,4 @@
+import { Type } from 'class-transformer';
 import { IsDate, IsNotEmpty, IsString, IsUrl } from 'class-validator';
 export class AirlineDto {
   @IsNotEmpty()
@@ -10,6 +11,7 @@ export class AirlineDto {
 
   @IsNotEmpty()
   @IsDate()
+  @Type(() => Date)
   readonly foundationDate: Date;
 
   @IsNotEmpty()
