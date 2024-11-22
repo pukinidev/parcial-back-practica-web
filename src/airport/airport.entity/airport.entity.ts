@@ -18,6 +18,6 @@ export class AirportEntity {
   @Column()
   city: string;
 
-  @ManyToMany(() => AirlineEntity)
+  @ManyToMany(() => AirlineEntity, (airline) => airline.airports)
   airlines: AirlineEntity[];
 }
