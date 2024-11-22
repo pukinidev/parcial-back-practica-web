@@ -10,7 +10,7 @@
 			"name": "Airlines",
 			"item": [
 				{
-					"name": "Add an Airline",
+					"name": "Add an Airline 1",
 					"event": [
 						{
 							"listen": "test",
@@ -75,10 +75,145 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "267"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10b-XAzF9Xt8k4bJoW1pzbmPvRWbO3U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:19:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
 							"cookie": [],
-							"body": null
+							"body": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1927-06-28\",\n    \"website\": \"https://www.iberia.com/co/\",\n    \"id\": \"2023507b-22f6-4ad0-9b7d-9a66fab7af5e\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add an Airline 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"airline_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Avianca\",\n    \"description\": \"Aerolinea Colombiana\",\n    \"foundationDate\": \"1919-12-05\",\n    \"website\": \"https://www.avianca.com/es/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add an Airline",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Avianca\",\n    \"description\": \"Aerolinea Colombiana\",\n    \"foundationDate\": \"1919-12-05\",\n    \"website\": \"https://www.avianca.com/es/\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "169"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"a9-wdezaY4TQSt6bdIVBb1zcKyODKI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:21:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Avianca\",\n    \"description\": \"Aerolinea Colombiana\",\n    \"foundationDate\": \"1919-12-05\",\n    \"website\": \"https://www.avianca.com/es/\",\n    \"id\": \"f1668a9c-b77e-4f82-8a84-f76185f0c0a5\"\n}"
 						}
 					]
 				},
@@ -108,7 +243,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"AirFrance\",\n    \"description\": \"Since it was founded in 1933, Air France has offered its passengers a unique experience on board its aircraft, which serve a vast network worldwide. Structured around three main activities - passenger transport, cargo and aircraft maintenance - Air France has become a major player in the airline industry thanks to the hard work and commitment of its employees.\",\n    \"foundationDate\": \"2024-11-22\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+							"raw": "{\n    \"name\": \"AirFrance\",\n    \"description\": \"Since it was founded in 1933, Air France has offered its passengers a unique experience on board its aircraft, which serve a vast network worldwide. Structured around three main activities - passenger transport, cargo and aircraft maintenance - Air France has become a major player in the airline industry thanks to the hard work and commitment of its employees.\",\n    \"foundationDate\": \"2024-11-24\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -133,7 +268,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"AirFrance\",\n    \"description\": \"Since it was founded in 1933, Air France has offered its passengers a unique experience on board its aircraft, which serve a vast network worldwide. Structured around three main activities - passenger transport, cargo and aircraft maintenance - Air France has become a major player in the airline industry thanks to the hard work and commitment of its employees.\",\n    \"foundationDate\": \"2024-11-22\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+									"raw": "{\n    \"name\": \"AirFrance\",\n    \"description\": \"Since it was founded in 1933, Air France has offered its passengers a unique experience on board its aircraft, which serve a vast network worldwide. Structured around three main activities - passenger transport, cargo and aircraft maintenance - Air France has become a major player in the airline industry thanks to the hard work and commitment of its employees.\",\n    \"foundationDate\": \"2024-11-24\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -150,10 +285,41 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"46-SG8TSdgdLiNTsBZ47D/JJsKj76k\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:19:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
 							"cookie": [],
-							"body": null
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The foundation date must be in the past\"\n}"
 						}
 					]
 				},
@@ -207,18 +373,41 @@
 									]
 								}
 							},
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "495"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1ef-roI0FQSMk0jx/quK/ip7menSrVM\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:21:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": \"720effa5-86d9-4824-a214-3e725d771aab\",\n        \"name\": \"Iberia\",\n        \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n        \"foundationDate\": \"1927-06-28T00:00:00.000Z\",\n        \"website\": \"https://www.iberia.com/co/\",\n        \"airports\": []\n    }\n]"
+							"body": "[\n    {\n        \"id\": \"2023507b-22f6-4ad0-9b7d-9a66fab7af5e\",\n        \"name\": \"Iberia\",\n        \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n        \"foundationDate\": \"1927-06-28T00:00:00.000Z\",\n        \"website\": \"https://www.iberia.com/co/\",\n        \"airports\": []\n    },\n    {\n        \"id\": \"f1668a9c-b77e-4f82-8a84-f76185f0c0a5\",\n        \"name\": \"Avianca\",\n        \"description\": \"Aerolinea Colombiana\",\n        \"foundationDate\": \"1919-12-05T00:00:00.000Z\",\n        \"website\": \"https://www.avianca.com/es/\",\n        \"airports\": []\n    }\n]"
 						}
 					]
 				},
@@ -269,10 +458,41 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "295"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"127-dUpbn+qqWbxKZK1GRYX7GLbLMqc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:24:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
 							"cookie": [],
-							"body": null
+							"body": "{\n    \"id\": \"2023507b-22f6-4ad0-9b7d-9a66fab7af5e\",\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1927-06-28T00:00:00.000Z\",\n    \"website\": \"https://www.iberia.com/co/\",\n    \"airports\": []\n}"
 						}
 					]
 				},
@@ -328,14 +548,37 @@
 									]
 								}
 							},
+							"status": "Not Found",
+							"code": 404,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-yLHUZFt+Vn9KkD5VGzLUFr/Z09U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:24:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
 								}
 							],
 							"cookie": [],
@@ -345,12 +588,26 @@
 				},
 				{
 					"name": "Update an Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"fundationDate\": \"1969-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+							"raw": "{\n    \"name\": \"Iberia SAS\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1970-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -368,16 +625,97 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update an Airline",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Iberia SAS\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1970-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "271"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10f-5KGz0c1NmKOpHk0STyM4ikcVUIU\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:25:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Iberia SAS\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1970-06-28\",\n    \"website\": \"https://www.iberia.com/co/\",\n    \"id\": \"2023507b-22f6-4ad0-9b7d-9a66fab7af5e\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Update an Invalid Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airline not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"fundationDate\": \"1969-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+							"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1969-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -395,10 +733,86 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update an Invalid Airline",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1969-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{invalid_airline_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-yLHUZFt+Vn9KkD5VGzLUFr/Z09U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:25:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airline not found\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete an Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -413,10 +827,70 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete an Airline",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:25:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Delete an Invalid Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airline not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -431,7 +905,60 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete an Invalid Airline",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{invalid_airline_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-yLHUZFt+Vn9KkD5VGzLUFr/Z09U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:26:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airline not found\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -439,7 +966,7 @@
 			"name": "Airports",
 			"item": [
 				{
-					"name": "Add an Airport",
+					"name": "Add an Airport 1",
 					"event": [
 						{
 							"listen": "test",
@@ -481,7 +1008,7 @@
 					},
 					"response": [
 						{
-							"name": "Add an Airport",
+							"name": "Add an Airport 1",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
@@ -504,10 +1031,145 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "122"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7a-EXe94LgRJZyxoHuWiSS0+3w1U8I\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:28:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
 							"cookie": [],
-							"body": null
+							"body": "{\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\": \"MDR\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\",\n    \"id\": \"fcc14cd8-36b1-4a31-857f-7c85bebf3995\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add an Airport 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"airport_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aeropuerto del Dorado\",\n    \"code\" : \"ADD\",\n    \"country\": \"Colombia\",\n    \"city\": \"Bogota\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add an Airport 2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aeropuerto del Dorado\",\n    \"code\" : \"ADD\",\n    \"country\": \"Colombia\",\n    \"city\": \"Bogota\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7e-8bILJnmvEParvtrYXWZvjaTYt/I\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:28:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Aeropuerto del Dorado\",\n    \"code\": \"ADD\",\n    \"country\": \"Colombia\",\n    \"city\": \"Bogota\",\n    \"id\": \"9b10dbef-f58e-4c18-93ec-606bd4ca9806\"\n}"
 						}
 					]
 				},
@@ -579,10 +1241,41 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"42-TD6JkLzPAswod91JFuHT7AKSIqw\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:28:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
 							"cookie": [],
-							"body": null
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"Airport code must have 3 characters\"\n}"
 						}
 					]
 				},
@@ -636,18 +1329,41 @@
 									]
 								}
 							},
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "279"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"117-D7YnMWgV0MDGkPKGfoXWkB+DPRI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:28:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": \"39c71319-d779-4bc5-b95b-aec9de557f07\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Madrid\",\n        \"airlines\": []\n    }\n]"
+							"body": "[\n    {\n        \"id\": \"9b10dbef-f58e-4c18-93ec-606bd4ca9806\",\n        \"name\": \"Aeropuerto del Dorado\",\n        \"code\": \"ADD\",\n        \"country\": \"Colombia\",\n        \"city\": \"Bogota\",\n        \"airlines\": []\n    },\n    {\n        \"id\": \"fcc14cd8-36b1-4a31-857f-7c85bebf3995\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Madrid\",\n        \"airlines\": []\n    }\n]"
 						}
 					]
 				},
@@ -698,18 +1414,41 @@
 									]
 								}
 							},
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "140"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8c-YjGOc90VdC8NOKCSxIBgOKwNLXI\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:28:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": \"39c71319-d779-4bc5-b95b-aec9de557f07\",\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\": \"MDR\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\",\n    \"airlines\": []\n}"
+							"body": "{\n    \"id\": \"9b10dbef-f58e-4c18-93ec-606bd4ca9806\",\n    \"name\": \"Aeropuerto del Dorado\",\n    \"code\": \"ADD\",\n    \"country\": \"Colombia\",\n    \"city\": \"Bogota\",\n    \"airlines\": []\n}"
 						}
 					]
 				},
@@ -765,14 +1504,37 @@
 									]
 								}
 							},
+							"status": "Not Found",
+							"code": 404,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-xfUB1JlfF+kqQ9pK+qJG8CF2HyA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:28:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
 								}
 							],
 							"cookie": [],
@@ -782,9 +1544,32 @@
 				},
 				{
 					"name": "Update an Airport",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aeropuerto del Dorado\",\n    \"code\": \"ADO\",\n    \"country\": \"Colombia\",\n    \"city\": \"Bogota\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{baseUrl}}/airports/{{valid_airport_ID}}",
 							"host": [
@@ -796,13 +1581,103 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update an Airport",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aeropuerto del Dorado\",\n    \"code\": \"ADO\",\n    \"country\": \"Colombia\",\n    \"city\": \"Bogota\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7e-inBzZYHsAXI3sXpkrXcWLRo4Pi8\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:30:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Aeropuerto del Dorado\",\n    \"code\": \"ADO\",\n    \"country\": \"Colombia\",\n    \"city\": \"Bogota\",\n    \"id\": \"9b10dbef-f58e-4c18-93ec-606bd4ca9806\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Update an Invalid Airport",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airport not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aeropuerto del Dorado\",\n    \"code\": \"ADO\",\n    \"country\": \"Colombia\",\n    \"city\": \"Bogota\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{baseUrl}}/airports/{{invalid_airport_ID}}",
 							"host": [
@@ -814,10 +1689,86 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update an Invalid Airport",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aeropuerto del Dorado\",\n    \"code\": \"ADO\",\n    \"country\": \"Colombia\",\n    \"city\": \"Bogota\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports/{{invalid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										"{{invalid_airport_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-xfUB1JlfF+kqQ9pK+qJG8CF2HyA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:30:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airport not found\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete an Airport",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -832,10 +1783,70 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete an Airport",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:30:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Delete an Invalid Airport",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airport not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -850,13 +1861,1656 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Delete an Invalid Airport",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airports/{{invalid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										"{{invalid_airport_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-xfUB1JlfF+kqQ9pK+qJG8CF2HyA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:30:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airport not found\"\n}"
+						}
+					]
 				}
 			]
 		},
 		{
 			"name": "Airlines-Airports",
-			"item": []
+			"item": [
+				{
+					"name": "Add an Airline 1 Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"airline_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1927-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add an Airline",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1927-06-28\",\n    \"website\": \"https://www.iberia.com/co/\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "267"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10b-XAzF9Xt8k4bJoW1pzbmPvRWbO3U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:19:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1927-06-28\",\n    \"website\": \"https://www.iberia.com/co/\",\n    \"id\": \"2023507b-22f6-4ad0-9b7d-9a66fab7af5e\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add an Airport 1 Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"airport_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\" : \"MDR\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add an Airport 1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\" : \"MDR\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "122"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7a-EXe94LgRJZyxoHuWiSS0+3w1U8I\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:28:01 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\": \"MDR\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\",\n    \"id\": \"fcc14cd8-36b1-4a31-857f-7c85bebf3995\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Airport to Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}",
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Airport to Airline",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}",
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "417"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a1-DbtvPFnSsib1PgeslpCsEGGnl5M\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:37:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"51c0f69d-059f-46fd-a1cb-d4e686bc515d\",\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1927-06-28T00:00:00.000Z\",\n    \"website\": \"https://www.iberia.com/co/\",\n    \"airports\": [\n        {\n            \"id\": \"b365db36-6670-4389-bc07-cab686f798f3\",\n            \"name\": \"Aeropuerto de Madrid\",\n            \"code\": \"MDR\",\n            \"country\": \"Spain\",\n            \"city\": \"Madrid\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Invalid Airport to Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airport not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{invalid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}",
+								"airports",
+								"{{invalid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Invalid Airport to Airline",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{invalid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}",
+										"airports",
+										"{{invalid_airport_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-xfUB1JlfF+kqQ9pK+qJG8CF2HyA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:39:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airport not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Airport to Invalid Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airline not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{invalid_airline_ID}}",
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Invalid Airport to Airline Copy 2",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{invalid_airline_ID}}",
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-yLHUZFt+Vn9KkD5VGzLUFr/Z09U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:40:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airline not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an Airport from an Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}",
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get an Airport from an Airline",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}",
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "122"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7a-icS2R9IDnesBWhL7HyaMHekFKwc\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:41:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"b365db36-6670-4389-bc07-cab686f798f3\",\n    \"name\": \"Aeropuerto de Madrid\",\n    \"code\": \"MDR\",\n    \"country\": \"Spain\",\n    \"city\": \"Madrid\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an Invalid Airport from an Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airport not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{invalid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}",
+								"airports",
+								"{{invalid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get an Invalid Airport from an Airline",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{invalid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}",
+										"airports",
+										"{{invalid_airport_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-xfUB1JlfF+kqQ9pK+qJG8CF2HyA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:43:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airport not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an Airport from an Invalid Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airline not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{invalid_airline_ID}}",
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get an Airport from an Invalid Airline",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{invalid_airline_ID}}",
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-yLHUZFt+Vn9KkD5VGzLUFr/Z09U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:44:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airline not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all Airports from an Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}",
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all Airports from an Airline",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}",
+										"airports"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7c-W6F3LpIXeC70Qfc/Z/3O3aM7WFY\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:49:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"b365db36-6670-4389-bc07-cab686f798f3\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Madrid\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update Airports from an Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": \"b365db36-6670-4389-bc07-cab686f798f3\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Valencia\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}",
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Airports from an Airline",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"id\": \"b365db36-6670-4389-bc07-cab686f798f3\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Valencia\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}",
+										"airports"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "419"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a3-5D70VscfTcJKaBsuWkFzYqb22pQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:52:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"51c0f69d-059f-46fd-a1cb-d4e686bc515d\",\n    \"name\": \"Iberia\",\n    \"description\": \"We're Spain's biggest airline, and our mission is to always be the best option for both leisure and business travelling.\",\n    \"foundationDate\": \"1927-06-28T00:00:00.000Z\",\n    \"website\": \"https://www.iberia.com/co/\",\n    \"airports\": [\n        {\n            \"id\": \"b365db36-6670-4389-bc07-cab686f798f3\",\n            \"name\": \"Aeropuerto de Madrid\",\n            \"code\": \"MDR\",\n            \"country\": \"Spain\",\n            \"city\": \"Valencia\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Airports from an Invalid Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airline not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": \"b365db36-6670-4389-bc07-cab686f798f3\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Valencia\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{invalid_airline_ID}}",
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Airports from an Invalid Airline",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"id\": \"b365db36-6670-4389-bc07-cab686f798f3\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Valencia\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{invalid_airline_ID}}",
+										"airports"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-yLHUZFt+Vn9KkD5VGzLUFr/Z09U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:55:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airline not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Invalid Airports from an Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airport not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Valencia\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}",
+								"airports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Invalid Airports from an Airline",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n    {\n        \"id\": \"00000000-0000-0000-0000-000000000000\",\n        \"name\": \"Aeropuerto de Madrid\",\n        \"code\": \"MDR\",\n        \"country\": \"Spain\",\n        \"city\": \"Valencia\"\n    }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}",
+										"airports"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-xfUB1JlfF+kqQ9pK+qJG8CF2HyA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:54:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airport not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Airport from a Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}",
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Airport from a Airline",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}",
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"127-6uo6kzuDwYRRU5iG94jiABEA0Ys\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:57:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete Invalid Airport from a Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airport not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{invalid_airline_ID}}",
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Invalid Airport from a Airline",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}/airports/{{invalid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}",
+										"airports",
+										"{{invalid_airport_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-xfUB1JlfF+kqQ9pK+qJG8CF2HyA\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 05:58:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airport not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Airport from Invalid a Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Get expected error message\", function () {",
+									"   var data = pm.response.json();",
+									"   pm.expect(data.message).to.eql(\"Airport not found\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{invalid_airline_ID}}",
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Airport from a Invalid Airline",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{invalid_airline_ID}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{invalid_airline_ID}}",
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-yLHUZFt+Vn9KkD5VGzLUFr/Z09U\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 06:00:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"Airline not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete an Airport",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airports/{{valid_airport_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airports",
+								"{{valid_airport_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete an Airport",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airports/{{valid_airport_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airports",
+										"{{valid_airport_ID}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 06:01:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete an Airline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"airlines",
+								"{{valid_airline_ID}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete an Airline",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/airlines/{{valid_airline_ID}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"airlines",
+										"{{valid_airline_ID}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 22 Nov 2024 06:01:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
 		}
 	]
 }
